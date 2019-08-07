@@ -24,7 +24,7 @@ from alfred import Experiment
 #################################################
 # - Section 2: Global variables and functions - #
 #################################################
-EXP_TYPE = "web"
+EXP_TYPE = "qt-wk"
 EXP_NAME = "template"
 EXP_VERSION = "1.0"
 EXP_AUTHOR_MAIL = "your@email.com"
