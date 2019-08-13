@@ -2,7 +2,7 @@
 '''
 Experiment script using Alfred - A library for rapid experiment development.
 
-Experiment author: Johannes Brachem <jobrachem@posteo.de>
+Experiment author: Johannes Brachem <brachem@psych.uni-goettingen.de>
 
 Description: This is a basic template for an alfred experiment.
 '''
