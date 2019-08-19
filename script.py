@@ -1,22 +1,13 @@
 # -*- coding:utf-8 -*-
-'''
-Experiment script using Alfred - A library for rapid experiment development.
-
-Experiment author: Johannes Brachem <brachem@psych.uni-goettingen.de>
-
-Description: This is a basic template for an alfred experiment.
-'''
-
 
 #################################
 # - Section 1: Module imports - #
 #################################
 
-from alfred.page import *
-from alfred.section import *
-from alfred.element import *
-from alfred.layout import *
-from alfred.helpmates import *
+from alfred.page import WebCompositePage
+from alfred.section import Section
+from alfred.element import TextElement
+from alfred.helpmates import parse_xml_to_dict
 
 from alfred import Experiment
 
@@ -29,6 +20,7 @@ EXP_NAME = "template"
 EXP_VERSION = "1.0"
 EXP_AUTHOR_MAIL = "your@email.com"
 
+instr = parse_xml_to_dict("files/instructions.xml")
 
 #################################
 # - Section 3: Custom classes - #
@@ -48,17 +40,18 @@ class Script(object):
         # --- START OF EDITABLE AREA --- #
 
         # Define pages
-        p10 = WebCompositePage(title="Hello, world!")
+        welcome = WebCompositePage(title="Hello, world!", uid="welcome")
 
-        p10_text = TextElement("This is a basic template.")
-        p10.append(p10_text)
+        text_a = TextElement("This is a basic template.")
+        text_b = TextElement(instr["text01"])
+        welcome.append(text_a, text_b)
 
         # Initialize and fill sections
         main = Section()
-        main.append(p10)
+        main.append(welcome)
 
         # Append sections and pages to experiment
-        exp.page_controller.append_item(main)
+        exp.page_controller.append(main)
 
         # --- END OF EDITABLE AREA --- #
 
