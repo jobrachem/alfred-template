@@ -1,7 +1,7 @@
 # Template for Alfred Experiments
 
 This a basic template for script-based experiments in alfred ([https://github.com/ctreffe/alfred](https://github.com/ctreffe/alfred)).
-This template runs on alfred's current development version. If you want a version of this template that is compatible with the current stable version, use the "legacy" branch of this template.
+>This template runs on alfred's current development version. If you want a version of this template that is compatible with the current stable version, use the "legacy" branch of this template.
 
 ## How to use this template
 
