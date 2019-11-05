@@ -4,21 +4,17 @@
 # - Section 1: Module imports - #
 #################################
 
+import alfred
 from alfred.page import WebCompositePage
 from alfred.section import Section
 from alfred.element import TextElement
 from alfred.helpmates import parse_xml_to_dict
 
-from alfred import Experiment
 
 
 #################################################
 # - Section 2: Global variables and functions - #
 #################################################
-EXP_TYPE = "web"
-EXP_NAME = "template"
-EXP_VERSION = "1.0"
-EXP_AUTHOR_MAIL = "your@email.com"
 
 instr = parse_xml_to_dict("files/instructions.xml")
 
@@ -32,30 +28,25 @@ instr = parse_xml_to_dict("files/instructions.xml")
 ########################################
 
 
-class Script(object):
+def generate_experiment(self):
+    # Define pages
+    welcome = WebCompositePage(title="Hello, world!", uid="welcome")
 
-    def generate_experiment(self):
-        exp = Experiment(EXP_TYPE, EXP_NAME, EXP_VERSION, EXP_AUTHOR_MAIL)
+    text_a = TextElement("This is a basic template.", name="text_a")
+    text_b = TextElement(instr["text01"], name="text_b")
+    welcome.append(text_a, text_b)
 
-        # --- START OF EDITABLE AREA --- #
+    # Initialize and fill sections
+    main = Section()
+    main.append(welcome)
 
-        # Define pages
-        welcome = WebCompositePage(title="Hello, world!", uid="welcome")
+    # Append sections and pages to experiment
+    exp = alfred.Experiment()
+    exp.append(main)
 
-        text_a = TextElement("This is a basic template.")
-        text_b = TextElement(instr["text01"])
-        welcome.append(text_a, text_b)
+    # --- END OF EDITABLE AREA --- #
 
-        # Initialize and fill sections
-        main = Section()
-        main.append(welcome)
-
-        # Append sections and pages to experiment
-        exp.page_controller.append(main)
-
-        # --- END OF EDITABLE AREA --- #
-
-        return exp
+    return exp
 
 
-generate_experiment = Script().generate_experiment
+alfred.run(generate_experiment)
