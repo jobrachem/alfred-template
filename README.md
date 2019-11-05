@@ -1,7 +1,7 @@
 # Template for Alfred Experiments
 
 This a baisc template for script-based experiments in alfred ([https://github.com/ctreffe/alfred](https://github.com/ctreffe/alfred)).
-This template runs on Alfred version 0.3b1
+>This template runs on Alfred version 0.3b1
 
 ## How to use this template
 
