@@ -7,6 +7,7 @@ This a baisc template for script-based experiments in alfred ([https://github.co
 
 1. Click on the green button "**Use this template**" to create a copy of this repository in your account.
 
+
 2. Download or clone the experiment directory.
 
 3. Run the template with the following command (you need to have Alfred v0.3b1 installed): 
