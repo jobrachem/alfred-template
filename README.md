@@ -1,7 +1,7 @@
 # Template for Alfred Experiments
 
-This a basic template for script-based experiments in alfred ([https://github.com/ctreffe/alfred](https://github.com/ctreffe/alfred)).
->This template runs on alfred's current development version. If you want a version of this template that is compatible with the current stable version, use the "legacy" branch of this template.
+This a baisc template for script-based experiments in alfred ([https://github.com/ctreffe/alfred](https://github.com/ctreffe/alfred)).
+>This template runs on Alfred v0.3b1
 
 ## How to use this template
 
@@ -9,12 +9,12 @@ This a basic template for script-based experiments in alfred ([https://github.co
 1. Run the template with the following command: `python script.py` (you need to have alfred installed)
 1. Now you can start developing.
 
-## Update metadata in config.conf
-Make sure to update these values in the `config.conf` file:
+## Update metadata 
+Make sure to update these values in the `script.py` file:
 
-```
-title = default
-author = default
-version = 0.1
+```python
+EXP_NAME = "template"
+EXP_VERSION = "1.0"
+EXP_AUTHOR_MAIL = "your@email.com"
 ```
 
