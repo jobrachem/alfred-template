@@ -15,8 +15,8 @@
         This sample instruction should not be deleted!
     </iExample>
 
-    <text01>
+    <text_b>
         This text is read in from instructions.xml.
-    </text01>
+    </text_b>
 
 </instr>
