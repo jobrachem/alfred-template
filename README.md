@@ -9,7 +9,7 @@ This a basic template for script-based experiments in alfred ([https://github.co
 1. Now you can start developing.
 
 ## WARNING: Update metadata in config.conf
-Make sure to update these values in the `config.conf` file. This is important 
+Make sure to update these values in the `config.conf` file.
 
 ```
 title = 
