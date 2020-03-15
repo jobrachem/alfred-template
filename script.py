@@ -4,49 +4,47 @@
 # - Section 1: Module imports - #
 #################################
 
-import alfred
-from alfred.page import WebCompositePage
-from alfred.section import Section
-from alfred.element import TextElement
+from alfred import Experiment
+from alfred.page import Page
 from alfred.helpmates import parse_xml_to_dict
-
-
-
-#################################################
-# - Section 2: Global variables and functions - #
-#################################################
-
-instr = parse_xml_to_dict("files/instructions.xml")
+import alfred.element as elm
+import alfred.section as sec
 
 #################################
-# - Section 3: Custom classes - #
+# - Section 2: Custom Classes - #
 #################################
 
+
+###################################
+# - Section 3: Page Definitions - #
+###################################
+
+
+class Welcome(Page):
+    def on_showing(self):
+        text_a = elm.TextElement('This is a basic template.', name='text_a')
+        text_b = elm.TextElement(self.values.text_b, name='text_b')
+        self.append(text_a, text_b)
 
 ########################################
 # - Section 4: Experiment generation - #
 ########################################
 
 
-def generate_experiment(self):
-    # Define pages
-    welcome = WebCompositePage(title="Hello, world!", uid="welcome")
+def generate_experiment(self, config=None):
+    exp = Experiment(config=config)
 
-    text_a = TextElement("This is a basic template.", name="text_a")
-    text_b = TextElement(instr["text01"], name="text_b")
-    welcome.append(text_a, text_b)
+    # file imports
+    instr = parse_xml_to_dict(exp.subpath('files/instructions.xml'))
+    
+    # Define pages
+    welcome = Welcome(title='Hello, World', uid='welcome', values=instr)
 
     # Initialize and fill sections
-    main = Section()
+    main = sec.Section()
     main.append(welcome)
 
     # Append sections and pages to experiment
-    exp = alfred.Experiment()
     exp.append(main)
 
-    # --- END OF EDITABLE AREA --- #
-
     return exp
-
-
-alfred.run(generate_experiment)
