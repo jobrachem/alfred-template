@@ -35,7 +35,7 @@ def generate_experiment(self, config=None):
     exp = Experiment(config=config)
 
     # file imports
-    instr = parse_xml_to_dict('files/instructions.xml')
+    instr = parse_xml_to_dict(exp.subpath('files/instructions.xml'))
     
     # Define pages
     welcome = Welcome(title='Hello, World', uid='welcome')
