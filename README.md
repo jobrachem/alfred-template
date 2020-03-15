@@ -16,5 +16,3 @@ title =
 author = 
 version = 
 exp_id = 
-```
-
