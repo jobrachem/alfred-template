@@ -38,8 +38,7 @@ def generate_experiment(self, config=None):
     instr = parse_xml_to_dict(exp.subpath('files/instructions.xml'))
     
     # Define pages
-    welcome = Welcome(title='Hello, World', uid='welcome')
-    welcome.values.text_b = instr['text_b']
+    welcome = Welcome(title='Hello, World', uid='welcome', values=instr)
 
     # Initialize and fill sections
     main = sec.Section()
