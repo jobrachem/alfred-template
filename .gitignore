@@ -4,3 +4,8 @@ log/
 save/
 __pycache__/
 alfred/
+.idea/alfred-experiment-template.iml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
