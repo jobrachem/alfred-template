@@ -4,7 +4,7 @@
         <!-- This is a comment field that is not read in, but is only used to explain entries. -->
         Any text can be read in here. Spaces and tabs, as well as line breaks are also read in!
 
-        The object names assigned here (within the comparator characters above and below the texts) are interpreted by alfred and used for assignment. They can therefore not be changed without further ado! Every change to object names must also be taken into account in the experimental scripts!
+        The object names assigned here (within the comparator characters above and below the texts) are interpreted by alfred and used for assignment. They can therefore not be changed without further ado! Every change to object names must also be taken into account in the experimental scripts! They cannot start with numbers.
 
         The header of the XML file should remain unchanged, unless a different character encoding is used! The default encoding is utf-8.
 
