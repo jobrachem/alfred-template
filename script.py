@@ -1,50 +1,22 @@
-# -*- coding:utf-8 -*-
+from alfred3 import Experiment
+from alfred3.section import SegmentedSection
 
-#################################
-# - Section 1: Module imports - #
-#################################
+from thesmuggler import smuggle
 
-from alfred import Experiment
-from alfred.page import Page
-from alfred.helpmates import parse_xml_to_dict
-import alfred.element as elm
-import alfred.section as sec
-
-#################################
-# - Section 2: Custom Classes - #
-#################################
-
-
-###################################
-# - Section 3: Page Definitions - #
-###################################
-
-
-class Welcome(Page):
-    def on_showing(self):
-        text_a = elm.TextElement('This is a basic template.', name='text_a')
-        text_b = elm.TextElement(self.values.text_b, name='text_b')
-        self.append(text_a, text_b)
-
-########################################
-# - Section 4: Experiment generation - #
-########################################
+exp_classes = smuggle("files/exp_classes.py")
 
 
 def generate_experiment(self, config=None):
     exp = Experiment(config=config)
 
-    # file imports
-    instr = parse_xml_to_dict(exp.subpath('files/instructions.xml'))
-    
-    # Define pages
-    welcome = Welcome(title='Hello, World', uid='welcome', values=instr)
+    main = SegmentedSection()
 
-    # Initialize and fill sections
-    main = sec.Section()
-    main.append(welcome)
+    pg_welcome = exp_classes.Welcome(title="Welcome Page")
+    pg_instructions = exp_classes.Instructions(title="Instructions")
 
-    # Append sections and pages to experiment
+    main.append(pg_welcome, pg_instructions)
+
     exp.append(main)
 
     return exp
+
