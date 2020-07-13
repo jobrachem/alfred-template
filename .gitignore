@@ -145,4 +145,4 @@ cython_debug/
 # Alfred stuff
 log/
 save/
-secrets.conf
+
