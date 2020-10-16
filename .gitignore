@@ -8,3 +8,4 @@ alfred/
 .idea/
 .vscode/
 data/
+secrets.conf
